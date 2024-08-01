@@ -48,7 +48,6 @@ const ConfirmationModal: React.FC<ConfirmationModalProps> = ({
             </div>
           </div>
         </div>
-        <p>{message}</p>
       </div>
     </div>
   );

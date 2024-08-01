@@ -6,7 +6,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { sendFormSchema } from "@/app/schemas/sendForm";
 import ConfirmationModal from "./modal";
 import CountrySelect from "./countrySelect";
-
+import { useRouter } from 'next/navigation';
+import { Router } from "next/router";
 type Inputs = {
   fullname: string;
   company: string;
@@ -22,6 +23,7 @@ const Form = () => {
   const [modalTitle, setModalTitle] = useState("");
   const [modalMessage, setModalMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const router = useRouter();
 
   const {
     register,
@@ -60,9 +62,10 @@ const Form = () => {
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     setLoading(true);
     setIsSubmitting(true);
+    
 
     try {
-      const token = await captureTokenDynamic();
+      /* const token = await captureTokenDynamic();
       await axios.post(
         "https://palegreen-anteater-636608.hostingersite.com/wp-json/api/v1/send-mail/",
         {
@@ -79,7 +82,9 @@ const Form = () => {
             Authorization: "Bearer " + token,
           },
         }
-      );
+      ); */
+      const newPath = "/registro";
+      window.history.replaceState(null, "", newPath);
       reset();
       setIsSubmitting(false);
       setModalTitle("¡Hemos Recibido Tu Solicitud!");
@@ -90,6 +95,7 @@ const Form = () => {
               trabajar contigo!`
       );
       setIsModalOpen(true);
+      router.push('/gracias');
     } catch (error) {
       console.error("Error sending data:", error);
       setIsSubmitting(false);
@@ -108,7 +114,7 @@ const Form = () => {
         onSubmit={handleSubmit(onSubmit)}
         className="mx-auto w-full max-w-[430px] bg-white h-full rounded-3xl border border-[#0BC2E1] p-8 shadow-lg"
       >
-         <div className="flex flex-col h-full justify-center overflow-y-auto">
+        <div className="flex flex-col h-full justify-center overflow-y-auto">
           <div className="text-center mb-5">
             <h2 className="text-[#0BC2E1] text-2xl md:text-3xl font-semibold mb-3">
               ¡Diseñemos Tu Sitio Web Juntos!

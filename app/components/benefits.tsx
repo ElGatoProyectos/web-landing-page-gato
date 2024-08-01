@@ -6,7 +6,7 @@ interface Props {
 
 const benefits: React.FC<Props> = ({ openPopup }) => {
   return (
-    <div className="w-full" id="benefits">
+    <div className="w-full" id="beneficios">
       <div className="flex flex-col xl:flex-row lg:px-16 md:px-8 px-8 max-w-[1440px] mx-auto py-16 gap-10 md:py-20 lg:gap-16 2xl:gap-20 justify-between ">
         <div className="w-full">
           <h2 className="text-[#444] text-4xl md:text-6xl font-semibold mb-8">

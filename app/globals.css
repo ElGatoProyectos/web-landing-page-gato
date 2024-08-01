@@ -54,8 +54,31 @@ html {
   display: flex;
 } */
 
-.marquee {
+/* .marquee {
   animation: marquee 15s linear infinite;
+} */
+.marquee-container {
+  width: 100%;
+  overflow: hidden;
+  background: #0BC2E1;
+  position: relative;
+  white-space: nowrap; /* Para evitar el salto de línea */
+}
+
+.marquee-content {
+  display: inline-flex;
+  animation: marquee 20s linear infinite;
+}
+
+.marquee-content img {
+  height: 60px;
+  object-fit: contain;
+  margin: 0 8px;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
 }
 @keyframes marquee {
   from {

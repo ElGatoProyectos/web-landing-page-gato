@@ -9,10 +9,10 @@ const contact = () => {
     window.open("https://wa.me/+51946380310", "_blank");
   }
   function redirectGato() {
-    window.open("https://gato-dev.vercel.app/", "_blank");
+    window.open("https://gato.pe/", "_blank");
   }
   return (
-    <div className="w-full bg-[#F3FAFB]" id="plans">
+    <div className="w-full bg-[#F3FAFB]" id="contactanos">
       <div className="w-full lg:px-16 px-8 max-w-[1440px] mx-auto pb-16 md:pt-4 md:pb-20 flex flex-col md:flex-row justify-between gap-8 lg:gap-20">
         <div className="w-full lg:w-2/3 2xl:w-3/5 flex flex-col md:flex-row justify-start items-center gap-2">
           <h2 className="w-full text-[#444] text-3xl md:text-4xl lg:text-6xl font-semibold text-center md:text-left">

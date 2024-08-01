@@ -1,7 +1,5 @@
 import React from "react";
-import Marquee, { Motion, randomIntFromInterval } from "react-marquee-slider";
-/* import Marquee from 'react-marquee-slider'; */
-import styled from "styled-components";
+import Marquee from "react-marquee-slider";
 
 const logos = () => {
   const srcLogos = [
@@ -39,7 +37,6 @@ const logos = () => {
             />
           ))}
         </Marquee>
-{/*         <div className="lg:mx-16 mx-8 flex justify-between items-center h-full gap-16 xl:gap-24"></div> */}
       </div>
     </div>
   );

@@ -25,7 +25,7 @@ const plans = (prop: Props) => {
     setSelectedPlan(null);
   };
   return (
-    <div className="w-full bg-[#F3FAFB]" id="plans">
+    <div className="w-full bg-[#F3FAFB]" id="planes">
       <div className="w-full lg:px-16 px-8  max-w-[1440px] mx-auto py-16 md:py-20 ">
         <h2 className="text-[#444] text-4xl md:text-6xl font-semibold mb-5 text-center">
           Conoce nuestros <span className="text-[#0BC2E1]">planes</span>

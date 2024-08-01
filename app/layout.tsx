@@ -1,6 +1,8 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
+import { GoogleTagManager } from '@next/third-parties/google';
+
 
 const inter = Inter({ subsets: ["latin"] });
 const poppins = Poppins({
@@ -8,16 +10,25 @@ const poppins = Poppins({
   weight: ["100", "300", "400", "500", "600", "700", "800", "900"],
   variable: "--font-poppins",
 });
-
+export const viewport: Viewport = {
+  initialScale: 1,
+  width: "device-width",
+};
 export const metadata: Metadata = {
-  metadataBase: new URL("https://landing-page-gato.vercel.app/"),
+  metadataBase: new URL("https://web.gato.com.pe/"),
   title: {
     default: "Diseño Web Profesional - Agencia Gato",
     template: "%s - Agencia Gato",
   },
   description:
     "Transforma tu presencia online con nuestro diseño web profesional. Descubre nuestras soluciones personalizadas para tu sitio web.",
-  keywords: [
+    alternates: {
+      canonical: "https://web.gato.com.pe/",
+      languages: {
+        "es-ES": "https://web.gato.com.pe/es-ES",
+      },
+    },
+    keywords: [
     "Diseño web profesional",
     "Diseño web personalizado",
     "Agencia de diseño web",
@@ -48,7 +59,7 @@ export const metadata: Metadata = {
   },
   authors: [
     { name: "Agencia GATO" },
-    { name: "Agencia GATO", url: "https://gato-dev.vercel.app/" },
+    { name: "Agencia GATO", url: "https://gato.pe/" },
   ],
   referrer: "origin-when-cross-origin",
   formatDetection: {
@@ -67,7 +78,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "es_ES",
-    url: "https://landing-page-gato.vercel.app/",
+    url: "https://web.gato.com.pe/",
     siteName: "Agencia Gato",
     title: "Desarrollo a medida - Agencia Gato",
     description:
@@ -97,6 +108,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
+    <GoogleTagManager gtmId="AW-16593859821" />
       <body className={poppins.className}>{children}</body>
     </html>
   );

@@ -4,11 +4,11 @@ import React, { useEffect, useState } from "react";
 
 const sections = [
   {
-    id: "benefits",
+    id: "beneficios",
     name: "Beneficios",
   },
   {
-    id: "plans",
+    id: "planes",
     name: "Planes",
   },
 ];
@@ -30,6 +30,7 @@ const Navbar:React.FC<Props> = ({openPopup}) => {
       const sectionElements = sections.map((section) =>
         document.getElementById(section.id)
       );
+      const contactElement = document.getElementById("contactanos");
 
       let currentSectionId = sections[0].id;
 
@@ -42,12 +43,20 @@ const Navbar:React.FC<Props> = ({openPopup}) => {
         }
       }
       setActiveSection(currentSectionId);
+      if (contactElement && contactElement.getBoundingClientRect().top <= 10) {
+        currentSectionId = 'contactanos';
+      }
+      if (currentSectionId !== activeSection) {
+        setActiveSection(currentSectionId);
+        const newPath = `#${currentSectionId}`;
+        window.history.replaceState(null, "", newPath);
+      }
     };
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  });
+  }, [activeSection]);
 
   return (
     <div className="z-20 fixed w-full bg-white h-[60px] md:h-[80px] shadow-lg">

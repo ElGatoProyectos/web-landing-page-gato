@@ -10,8 +10,8 @@ const footer = () => {
   return (
     <div className="w-full bg-[#0BC2E1]">
       <div className="w-full max-w-[1440px] mx-auto lg:px-16 md:px-8 p-6 flex flex-col-reverse md:flex-row gap-4 justify-between items-center">
-        <small className="text-white text-center">
-          © Agencia GATO 2024. Todos los derechos reservados.
+        <small className="text-white text-center text-sm ">
+        © <strong>Agencia GATO</strong> 2024. Todos los derechos reservados.
         </small>
         <div className="flex gap-4 items-center">
           <Link
