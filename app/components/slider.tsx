@@ -123,7 +123,7 @@ const slider = ({
           >
             <div className="flex flex-col justify-between h-full gap-6">
               <div className="">
-                <h3 className="px-6 text-[#666] font-medium text-2xl text-left mb-1 capitalize">
+                <h3 className="px-6 text-[#666] font-semibold text-2xl text-left mb-1 capitalize">
                   {item.name.toLocaleLowerCase()}
                 </h3>
                 <div className="relative w-[90%] bg-[#0BC2E1] py-4 text-white rounded-r-full font-extrabold text-4xl mb-4">
@@ -132,7 +132,7 @@ const slider = ({
                     + IGV
                   </span></span>
                 </div>
-                <p className="px-6 text-center text-[#888] ">
+                <p className="px-6 text-center text-[#666] font-medium ">
                   {item.descriptionCorta}
                 </p>
               </div>
@@ -166,7 +166,7 @@ const slider = ({
                 </ul>
                 <button
                   onClick={() => handleViewPlan(item)}
-                  className="text-sm text-[#ddd] text-center mb-4 block mx-auto"
+                  className="text-sm text-[#666] text-center mb-4 block mx-auto"
                 >
                   Ver más
                 </button>

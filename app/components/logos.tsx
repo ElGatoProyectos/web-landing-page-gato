@@ -1,24 +1,64 @@
-import React from "react";
-import Marquee from "react-marquee-slider";
+import Slider from "react-slick";
 
 const logos = () => {
   const srcLogos = [
-    { src: "/clientLogos/ambar.png", alt: "Cliente AMBAR PADDLE" },
-    { src: "/clientLogos/bcf.png", alt: "Cliente BCF" },
-    { src: "/clientLogos/caprepar.png", alt: "Cliente CAPREPAR" },
-    { src: "/clientLogos/embalaje.png", alt: "Cliente EMBALAJE COMPANY" },
-    { src: "/clientLogos/enmat.png", alt: "Cliente ENMAT" },
-    { src: "/clientLogos/hogardia.png", alt: "Cliente HOGARDIA" },
-    { src: "/clientLogos/jorcamgames.png", alt: "Cliente JORCAMGAMES" },
-    { src: "/clientLogos/naturmed.png", alt: "Cliente NATURMED" },
-    { src: "/clientLogos/nutrisalud.png", alt: "Cliente NUTRISALUD" },
-    { src: "/clientLogos/socialcommerce.png", alt: "Cliente SocialCommerce" },
-    { src: "/clientLogos/todonegocios.png", alt: "Cliente TODONEGOCIO" },
-    { src: "/clientLogos/hierrolate.png", alt: "Cliente HIERROLATE" },
+    { src: "/clientLogos/ambar.png", name: "Cliente AMBAR PADDLE" },
+    { src: "/clientLogos/bcf.webp", name: "Cliente BCF" },
+    { src: "/clientLogos/caprepar.webp", name: "Cliente CAPREPAR" },
+    { src: "/clientLogos/embalaje.png", name: "Cliente EMBALAJE COMPANY" },
+    { src: "/clientLogos/enmat.png", name: "Cliente ENMAT" },
+    { src: "/clientLogos/hogardia.png", name: "Cliente HOGARDIA" },
+    { src: "/clientLogos/jorcamgames.png", name: "Cliente JORCAMGAMES" },
+    { src: "/clientLogos/naturmed.png", name: "Cliente NATURMED" },
+    { src: "/clientLogos/nutrisalud.png", name: "Cliente NUTRISALUD" },
+    { src: "/clientLogos/socialcommerce.png", name: "Cliente SocialCommerce" },
+    { src: "/clientLogos/todonegocios.png", name: "Cliente TODONEGOCIO" },
+    { src: "/clientLogos/hierrolate.png", name: "Cliente HIERROLATE" },
   ];
+  var settings = {
+    dots: false,
+    infinite: true,
+    speed: 400,
+    slidesToShow: 6,
+    slidesToScroll: 1,
+    autoplay: true,
+    responsive:[
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 5,
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 3,
+        }
+      },
+      {
+        breakpoint: 428,
+        settings: {
+          slidesToShow: 2,
+        }
+      },
+    ]
+  };
   return (
-    <div className="w-full bg-[#0BC2E1] h-[100px] py-5   ">
-      <div className="w-full h-full   overflow-hidden ">
+    <div className="w-full bg-[#0BC2E1] h-[100px] overflow-hidden">
+      <Slider {...settings}>
+        {srcLogos.map((logo, index) => (
+          <div key={index} className="h-[100px] w-full content-center">
+            <img
+              src={logo.src}
+              alt={'Logo de nuestro cliente: ' + logo.name}
+              title={'Logo de nuestro cliente: ' + logo.name}
+              loading="lazy"
+              className="h-[60px] object-contain mx-auto"
+            />
+          </div>
+        ))}
+      </Slider>
+     {/*  <div className="w-full h-full   overflow-hidden ">
         <Marquee
           velocity={15}
           scatterRandomly={false}
@@ -37,7 +77,7 @@ const logos = () => {
             />
           ))}
         </Marquee>
-      </div>
+      </div> */}
     </div>
   );
 };

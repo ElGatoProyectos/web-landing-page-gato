@@ -69,7 +69,7 @@ const Navbar:React.FC<Props> = ({openPopup}) => {
               className="h-full w-auto object-contain"
             />
             <h1 className="hidden md:block h-full text-[#0BC2E1] font-bold text-5xl">
-              GATO <span className="text-sm text-[#888] block font-normal relative -top-2 ">Marketing y Software</span>
+              GATO <span className="text-sm text-[#666] block font-normal relative -top-2 ">Marketing y Software</span>
           </h1>
         </Link>
 
@@ -138,7 +138,6 @@ const Navbar:React.FC<Props> = ({openPopup}) => {
           </nav>
         </div>
       </div>
-{/*       {popUpOpen && <PopUp closePopUp={closePopUp} />} */}
     </div>
   );
 }

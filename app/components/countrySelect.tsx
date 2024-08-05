@@ -1,6 +1,6 @@
-import Select, { StylesConfig } from 'react-select';
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import Select, { StylesConfig } from "react-select";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 
 interface SelectFieldProps {
   id: string;
@@ -25,7 +25,9 @@ const CountrySelect: React.FC<SelectFieldProps> = ({
   const [codes, setCodes] = useState<Country[]>([]);
   const fetchCountries = async () => {
     try {
-      const response = await axios.get("https://raw.githubusercontent.com/Desarrollo2Gato/countries/main/data.json");
+      const response = await axios.get(
+        "https://raw.githubusercontent.com/Desarrollo2Gato/countries/main/data.json"
+      );
       let countryData: Country[] = response.data.map((country: any) => ({
         name: country.country,
         code: country.calling_code,
@@ -49,55 +51,56 @@ const CountrySelect: React.FC<SelectFieldProps> = ({
   const customStyles: StylesConfig<{ value: string; label: string }, false> = {
     control: (provided, state) => ({
       ...provided,
-      borderRadius: '8px',
-      fontSize: '16px',
-      color: '#666',
-      backgroundColor: state.isFocused ? 'white' : 'transparent',
-      borderColor: error ? '#0BC2E1' : '#EEEEEE',
+      borderRadius: "8px",
+      fontSize: "16px",
+      color: "#666",
+      backgroundColor: state.isFocused ? "white" : "transparent",
+      borderColor: error ? "#0BC2E1" : "#EEEEEE",
       boxShadow: state.isFocused
         ? error
-          ? '0 0 0 1px #f20707'
-          : '0 0 0 1px #0BC2E1'
-        : 'none',
-      '&:hover': {
+          ? "0 0 0 1px #f20707"
+          : "0 0 0 1px #0BC2E1"
+        : "none",
+      "&:hover": {
         borderColor: state.isFocused
           ? error
-            ? '#f20707'
-            : '#0BC2E1'
-          : '#EEEEEE',
+            ? "#f20707"
+            : "#0BC2E1"
+          : "#EEEEEE",
       },
     }),
     placeholder: (provided) => ({
       ...provided,
-      color: '#bbb',
+      color: "#bbb",
     }),
     singleValue: (provided) => ({
       ...provided,
-      color: '#666',
+      color: "#666",
     }),
   };
 
   return (
     <div className="w-full text-[#444] mb-3">
       <Select
-            inputId={id}
-            defaultValue={options.find((opt) => opt.value === defaultValue)}
-            options={options}
-            styles={customStyles}
-            placeholder='seleccione...'
-            isDisabled={isDisabled}
-            onChange={(selectedOption) => {
-              if (register) {
-                register.onChange({
-                  target: {
-                    name: register.name,
-                    value: selectedOption?.value,
-                  },
-                });
-              }
-            }}
-            onBlur={register?.onBlur}
-          />
+        instanceId="country_code_select"
+        inputId={id}
+        defaultValue={options.find((opt) => opt.value === defaultValue)}
+        options={options}
+        styles={customStyles}
+        placeholder="seleccione..."
+        isDisabled={isDisabled}
+        onChange={(selectedOption) => {
+          if (register) {
+            register.onChange({
+              target: {
+                name: register.name,
+                value: selectedOption?.value,
+              },
+            });
+          }
+        }}
+        onBlur={register?.onBlur}
+      />
     </div>
   );
 };

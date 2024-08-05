@@ -16,13 +16,13 @@ const Content = () => {
     <>
       <Navbar openPopup={openPopup} />
       <main className="top-[60px] md:top-[80px] relative ">
-        <section className=" max-w-[1440px] mx-auto justify-center items-center flex flex-col md:min-h-[calc(100vh-152px)] gap-8 ">
+        <section className=" max-w-[1440px] mx-auto justify-center items-center flex flex-col md:min-h-[calc(100vh-152px)] gap-8 p-8 md:p-16 xl:px-24">
           <Image
-            height={184}
-            width={257}
-            src={"/gatosend.png"}
+            height={360}
+            width={490}
+            src={"/thanks.webp"}
             alt="Imagen de un gato para la vista Gracias"
-            className="max-w-[180px] object-contain"
+            className="max-w-[250px] object-contain"
             title="Imagen de un gato para la vista Gracias"
           />
           <h2 className="text-center font-bold text-5xl text-[#444]">
@@ -34,7 +34,7 @@ const Content = () => {
             encantados de ayudarte!
           </p>
           <Link
-            title="Agencia Gato"
+            title="Sitio web de Agencia Gato"
             href={"https://gato.pe/"}
             target="_blank"
             className="bg-[#0BC2E1] font-semibold text-xl text-white rounded-full px-6 py-2"
@@ -46,11 +46,6 @@ const Content = () => {
       </main>
       <WsFloat />
       <PopUp isVisible={isPopupVisible} closePopUp={closePopup} />
-      <Script id="google-ads-conversion" strategy="afterInteractive">
-        {`
-        gtag('event', 'conversion', {'send_to': 'AW-16593859821/T_L3CPiurMcZEO3pyOg9'});
-      `}
-      </Script>
     </>
   );
 };

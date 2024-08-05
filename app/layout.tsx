@@ -1,8 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
-import { GoogleTagManager } from '@next/third-parties/google';
-
+import { GoogleTagManager } from "@next/third-parties/google";
+import Head from "next/head";
+import Script from "next/script";
+import { Partytown } from "@builder.io/partytown/react";
 
 const inter = Inter({ subsets: ["latin"] });
 const poppins = Poppins({
@@ -22,13 +24,13 @@ export const metadata: Metadata = {
   },
   description:
     "Transforma tu presencia online con nuestro diseño web profesional. Descubre nuestras soluciones personalizadas para tu sitio web.",
-    alternates: {
-      canonical: "https://web.gato.com.pe/",
-      languages: {
-        "es-ES": "https://web.gato.com.pe/es-ES",
-      },
+  alternates: {
+    canonical: "https://web.gato.com.pe/",
+    languages: {
+      "es-ES": "https://web.gato.com.pe/es-ES",
     },
-    keywords: [
+  },
+  keywords: [
     "Diseño web profesional",
     "Diseño web personalizado",
     "Agencia de diseño web",
@@ -108,7 +110,23 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-    <GoogleTagManager gtmId="AW-16593859821" />
+      <Head>
+        <Partytown debug={true} forward={["dataLayer.push"]} />
+        <Script
+          id="gtm"
+          type="text/partytown"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','AW-16593859821');`,
+          }}
+        ></Script>
+      </Head>
+      <GoogleTagManager gtmId="AW-16593859821" />
       <body className={poppins.className}>{children}</body>
     </html>
   );

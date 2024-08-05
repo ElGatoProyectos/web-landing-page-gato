@@ -6,8 +6,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { sendFormSchema } from "@/app/schemas/sendForm";
 import ConfirmationModal from "./modal";
 import CountrySelect from "./countrySelect";
-import { useRouter } from 'next/navigation';
-import { Router } from "next/router";
+import { useRouter } from "next/navigation";
+import { sendGTMEvent } from "@next/third-parties/google";
 type Inputs = {
   fullname: string;
   company: string;
@@ -62,10 +62,9 @@ const Form = () => {
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     setLoading(true);
     setIsSubmitting(true);
-    
 
     try {
-      /* const token = await captureTokenDynamic();
+      const token = await captureTokenDynamic();
       await axios.post(
         "https://palegreen-anteater-636608.hostingersite.com/wp-json/api/v1/send-mail/",
         {
@@ -82,10 +81,12 @@ const Form = () => {
             Authorization: "Bearer " + token,
           },
         }
-      ); */
-      const newPath = "/registro";
-      window.history.replaceState(null, "", newPath);
+      );
       reset();
+      sendGTMEvent({
+        event: 'conversion',
+        conversion_id: 'AW-16593859821/OwFFCNHzz8cZEO3pyOg9',
+      });
       setIsSubmitting(false);
       setModalTitle("¡Hemos Recibido Tu Solicitud!");
       setModalMessage(
@@ -95,7 +96,7 @@ const Form = () => {
               trabajar contigo!`
       );
       setIsModalOpen(true);
-      router.push('/gracias');
+      router.push("/gracias");
     } catch (error) {
       console.error("Error sending data:", error);
       setIsSubmitting(false);
@@ -119,7 +120,7 @@ const Form = () => {
             <h2 className="text-[#0BC2E1] text-2xl md:text-3xl font-semibold mb-3">
               ¡Diseñemos Tu Sitio Web Juntos!
             </h2>
-            <p className="text-[#888]">
+            <p className="text-[#666]">
               Transforma tus ideas en un sitio web que refleje tu marca.
               Completa el formulario y comenzaremos a crear tu estrategia de
               diseño web.
@@ -130,7 +131,7 @@ const Form = () => {
               type="text"
               placeholder="Nombre"
               id="fullname"
-              className=" bg-transparent w-full border rounded-lg px-4 py-2 placeholder:text-[#bbb] text-[#888] mb-3 outline-none focus:border-[#0BC2E1]"
+              className=" bg-transparent w-full border rounded-lg px-4 py-2 placeholder:text-[#bbb] text-[#666] mb-3 outline-none focus:border-[#0BC2E1]"
               {...register("fullname")}
             />
             {errors.fullname && (
@@ -142,7 +143,7 @@ const Form = () => {
               type="text"
               placeholder="Empresa"
               id="company"
-              className="bg-transparent w-full border rounded-lg px-4 py-2 placeholder:text-[#bbb] text-[#888] mb-3 outline-none  focus:border-[#0BC2E1]"
+              className="bg-transparent w-full border rounded-lg px-4 py-2 placeholder:text-[#bbb] text-[#666] mb-3 outline-none  focus:border-[#0BC2E1]"
               {...register("company")}
             />
             {errors.company && (
@@ -168,7 +169,7 @@ const Form = () => {
                   type="text"
                   placeholder="Número celular "
                   id="phone"
-                  className="bg-transparent w-full border rounded-lg px-4 py-2 placeholder:text-[#bbb] text-[#888] mb-3 outline-none  focus:border-[#0BC2E1]"
+                  className="bg-transparent w-full border rounded-lg px-4 py-2 placeholder:text-[#bbb] text-[#666] mb-3 outline-none  focus:border-[#0BC2E1]"
                   {...register("phone")}
                 />
                 {errors.phone && (
@@ -183,7 +184,7 @@ const Form = () => {
               type="email"
               placeholder="Email"
               id="email"
-              className="bg-transparent w-full border rounded-lg px-4 py-2 placeholder:text-[#bbb] text-[#888] mb-3 outline-none focus:border-[#0BC2E1]"
+              className="bg-transparent w-full border rounded-lg px-4 py-2 placeholder:text-[#bbb] text-[#666] mb-3 outline-none focus:border-[#0BC2E1]"
               {...register("email")}
             />
             {errors.email && (
@@ -195,7 +196,7 @@ const Form = () => {
               rows={3}
               placeholder="cuéntanos tu idea"
               id="ideaDescription"
-              className=" resize-none bg-transparent w-full border rounded-lg px-4 py-2 placeholder:text-[#bbb] text-[#888] mb-3 outline-none focus:border-[#0BC2E1]"
+              className=" resize-none bg-transparent w-full border rounded-lg px-4 py-2 placeholder:text-[#bbb] text-[#666] mb-3 outline-none focus:border-[#0BC2E1]"
               {...register("ideaDescription")}
             ></textarea>
             {errors.ideaDescription && (

@@ -30,7 +30,7 @@ const plans = (prop: Props) => {
         <h2 className="text-[#444] text-4xl md:text-6xl font-semibold mb-5 text-center">
           Conoce nuestros <span className="text-[#0BC2E1]">planes</span>
         </h2>
-        <p className="text-center text-[#888] mb-4 lg:mb-14">
+        <p className="text-center text-[#666] mb-4 lg:mb-14">
           Escoge el plan que mejor se adapte a tus necesidades
         </p>
         <div className="px-6 w-full mb-14 text-center">
@@ -136,7 +136,7 @@ const plans = (prop: Props) => {
                   Cotizar
                 </button>
                 <img
-                  src="/mujer.png"
+                  src="/mujer.webp"
                   alt="chica"
                   loading="lazy"
                   className="mt-4 lg:absolute relative max-h-60 object-contain w-auto float-end bottom-0 right-4 lg:mt-auto "
