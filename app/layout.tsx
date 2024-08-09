@@ -2,11 +2,10 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import { GoogleTagManager } from "@next/third-parties/google";
-import Head from "next/head";
+/* import Head from "next/head";
 import Script from "next/script";
-import { Partytown } from "@builder.io/partytown/react";
+import { Partytown } from "@builder.io/partytown/react"; */
 
-const inter = Inter({ subsets: ["latin"] });
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["100", "300", "400", "500", "600", "700", "800", "900"],
@@ -110,7 +109,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <Head>
+      {/* <Head>
         <Partytown debug={true} forward={["dataLayer.push"]} />
         <Script
           id="gtm"
@@ -125,7 +124,7 @@ export default function RootLayout({
             })(window,document,'script','dataLayer','AW-16593859821');`,
           }}
         ></Script>
-      </Head>
+      </Head> */}
       <GoogleTagManager gtmId="AW-16593859821" />
       <body className={poppins.className}>{children}</body>
     </html>
