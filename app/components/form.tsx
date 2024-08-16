@@ -42,7 +42,7 @@ const Form = () => {
     );
     try {
       const response: any = await axios.post(
-        "https://palegreen-anteater-636608.hostingersite.com/wp-json/jwt-auth/v1/token",
+        "https://azure-pheasant-355159.hostingersite.com/wp-json/jwt-auth/v1/token",
         {
           username: process.env.NEXT_PUBLIC_EMAIL,
           password: process.env.NEXT_PUBLIC_PASSWORD,
@@ -66,7 +66,7 @@ const Form = () => {
     try {
       const token = await captureTokenDynamic();
       await axios.post(
-        "https://palegreen-anteater-636608.hostingersite.com/wp-json/api/v1/send-mail/",
+        "https://azure-pheasant-355159.hostingersite.com/wp-json/api/v1/send-mail/",
         {
           name: data.fullname,
           company: data.company,
