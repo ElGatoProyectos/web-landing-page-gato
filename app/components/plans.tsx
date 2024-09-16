@@ -2,14 +2,15 @@
 import SliderPlans from "./slider";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { IPlan } from "../interface/iPlan";
 type Props = {
   color: string;
-  data: any[];
+  data: IPlan[];
   openPopup: () => void;
 };
 
 const plans = (prop: Props) => {
-  const [selectedPlan, setSelectedPlan] = useState<any | null>(null);
+  const [selectedPlan, setSelectedPlan] = useState<IPlan | null>(null);
   const planDetailRef = useRef<HTMLDivElement>(null);
 
   const handleViewPlan = (plan: any) => {
@@ -35,7 +36,7 @@ const plans = (prop: Props) => {
         </p>
         <div className="px-6 w-full mb-14 text-center">
           <SliderPlans
-            color={'#0BC2E1'}
+            color={"#0BC2E1"}
             data={prop.data}
             handleViewPlan={handleViewPlan}
             openPopup={prop.openPopup}
@@ -70,36 +71,33 @@ const plans = (prop: Props) => {
               >
                 <path
                   d="M38.8162 6.83117C40.3779 5.2694 40.3779 2.73309 38.8162 1.17133C37.2544 -0.390442 34.7181 -0.390442 33.1563 1.17133L20 14.3402L6.83117 1.18382C5.2694 -0.377948 2.73309 -0.377948 1.17133 1.18382C-0.390442 2.74559 -0.390442 5.2819 1.17133 6.84367L14.3402 20L1.18382 33.1688C-0.377948 34.7306 -0.377948 37.2669 1.18382 38.8287C2.74559 40.3904 5.2819 40.3904 6.84367 38.8287L20 25.6598L33.1688 38.8162C34.7306 40.3779 37.2669 40.3779 38.8287 38.8162C40.3904 37.2544 40.3904 34.7181 38.8287 33.1563L25.6598 20L38.8162 6.83117Z"
-                  fill={selectedPlan.color}
+                  fill={"#0BC2E1"}
                 />
               </svg>
             </button>
             <h2 className="text-[#666] text-center text-4xl mb-7 font-bold capitalize">
-              {selectedPlan.name.toLowerCase()}
+              {selectedPlan.plan_name }
             </h2>
             <div className="flex flex-col md:flex-row gap-20 lg:gap-28 justify-between">
               <div className="md:w-1/2 2xl:w-2/4 2xl:pr-10">
                 <div className="text-[#0BC2E1] font-bold text-xl mb-7">
                   <p>
-                    {selectedPlan.word}: S/. {selectedPlan.price}.00
+                    {selectedPlan.short_description}: S/.{" "}
+                    {selectedPlan.price}.00
                   </p>
-                  {selectedPlan.priceTrimestral && (
-                    <p className="text-[#777] mt-2">
-                      Pago trimestral: S/.{selectedPlan.priceTrimestral}
-                    </p>
-                  )}
+                 
                 </div>
                 <p className="text-[#666] text-center w-full ">
-                  {selectedPlan.description}
+                  {selectedPlan.long_description}
                 </p>
 
-                <h3
-                  className={`text-xl font-bold mb-2 text-[#0BC2E1]`}
-                >
+                <h3 className={`text-xl font-bold mb-2 text-[#0BC2E1]`}>
                   Incluye
                 </h3>
                 <ul className="pl-5 list-none text-[1rem] md:max-h-[400px] md:overflow-y-auto mt-7">
-                  {selectedPlan.details.map((detail:any, index:number) => (
+                {selectedPlan.items.length > 0 &&
+                    selectedPlan.items[0].sub_items &&
+                    selectedPlan.items[0].sub_items.map((detail: any, index: number) => (
                     <li
                       key={index}
                       className={`flex justify-start items-start text-[#666] mb-3`}
@@ -119,7 +117,7 @@ const plans = (prop: Props) => {
                           />
                         </svg>
                       </div>
-                      <span className="ml-3 ">{detail}</span>
+                      <span className="ml-3 ">{detail.name_sub_item}</span>
                     </li>
                   ))}
                 </ul>
@@ -127,7 +125,10 @@ const plans = (prop: Props) => {
 
               <div className="relative md:w-1/2 2xl:w-2/5 bg-[#F3FAFB] px-8 pt-8 rounded-lg shadow-lg flex flex-col justify-between lg:justify-start items-center lg:items-start">
                 <h3 className="text-[#0BC2E1] font-medium text-3xl ">
-                <span className="text-[#666] block">¿Listo para empezar?</span> Haz realidad tu idea con nosotros.
+                  <span className="text-[#666] block">
+                    ¿Listo para empezar?
+                  </span>{" "}
+                  Haz realidad tu idea con nosotros.
                 </h3>
                 <button
                   onClick={prop.openPopup}

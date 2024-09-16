@@ -20,10 +20,9 @@ const index = () => {
   const fetchDataWeb = async () => {
     try {
       const response = await axios.get(
-        "https://raw.githubusercontent.com/Desarrollo2Gato/gato/main/planes/dataweb.json"
+        "https://azure-pheasant-355159.hostingersite.com/wp-json/wp/v2/plan?slug=planes-de-disenio-web"
       );
-      console.log(response.data)
-      setDataWeb(response.data);
+      setDataWeb(response.data[0].acf.plans);
     } catch (error) {
       console.log(error);
     }
@@ -37,7 +36,7 @@ const index = () => {
       <main className="top-[60px] md:top-[80px] relative">
         <Banner openPopup={openPopup} />
         <Benefits openPopup={openPopup} />
-        <Plans color="#007cf8" data={dataWeb} openPopup={openPopup} />
+        <Plans color="#0BC2E1" data={dataWeb} openPopup={openPopup} />
         <Contact />
         <Footer />
       </main>

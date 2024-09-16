@@ -35,11 +35,6 @@ const Form = () => {
   });
 
   async function captureTokenDynamic() {
-    console.log(
-      "Capturing token with:",
-      process.env.NEXT_PUBLIC_EMAIL,
-      process.env.NEXT_PUBLIC_PASSWORD
-    );
     try {
       const response: any = await axios.post(
         "https://azure-pheasant-355159.hostingersite.com/wp-json/jwt-auth/v1/token",
@@ -48,10 +43,8 @@ const Form = () => {
           password: process.env.NEXT_PUBLIC_PASSWORD,
         }
       );
-      console.log("Token captured:", response.data.token);
       return response.data.token;
     } catch (error) {
-      console.error("Error capturing token:", error);
       setModalMessage("Error.");
       setModalMessage("Error al capturar el token.");
       setIsModalOpen(true);
@@ -84,8 +77,8 @@ const Form = () => {
       );
       reset();
       sendGTMEvent({
-        event: 'conversion',
-        conversion_id: 'AW-16593859821/OwFFCNHzz8cZEO3pyOg9',
+        event: "conversion",
+        conversion_id: "AW-16593859821/OwFFCNHzz8cZEO3pyOg9",
       });
       setIsSubmitting(false);
       setModalTitle("¡Hemos Recibido Tu Solicitud!");
@@ -95,6 +88,7 @@ const Form = () => {
               podemos llevar tu visión al siguiente nivel. ¡Nos emociona
               trabajar contigo!`
       );
+
       setIsModalOpen(true);
       router.push("/gracias");
     } catch (error) {
