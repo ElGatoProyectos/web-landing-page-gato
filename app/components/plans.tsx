@@ -29,10 +29,11 @@ const plans = (prop: Props) => {
     <div className="w-full bg-[#F3FAFB]" id="planes">
       <div className="w-full lg:px-16 px-8  max-w-[1440px] mx-auto py-16 md:py-20 ">
         <h2 className="text-[#444] text-4xl md:text-6xl font-semibold mb-5 text-center">
-          Conoce nuestros <span className="text-[#0BC2E1]">planes</span>
+          Conoce nuestros <span className="text-[#0BC2E1]">paquetes</span> para
+          emprendedores
         </h2>
         <p className="text-center text-[#666] mb-4 lg:mb-14">
-          Escoge el plan que mejor se adapte a tus necesidades
+          Escoge el paquete que mejor se adapte a tus necesidades
         </p>
         <div className="px-6 w-full mb-14 text-center">
           <SliderPlans
@@ -76,16 +77,15 @@ const plans = (prop: Props) => {
               </svg>
             </button>
             <h2 className="text-[#666] text-center text-4xl mb-7 font-bold capitalize">
-              {selectedPlan.plan_name }
+              {selectedPlan.plan_name}
             </h2>
             <div className="flex flex-col md:flex-row gap-20 lg:gap-28 justify-between">
               <div className="md:w-1/2 2xl:w-2/4 2xl:pr-10">
                 <div className="text-[#0BC2E1] font-bold text-xl mb-7">
                   <p>
-                    {selectedPlan.short_description}: S/.{" "}
-                    {selectedPlan.price}.00
+                    {selectedPlan.short_description}: S/. {selectedPlan.price}
+                    .00
                   </p>
-                 
                 </div>
                 <p className="text-[#666] text-center w-full ">
                   {selectedPlan.long_description}
@@ -95,31 +95,33 @@ const plans = (prop: Props) => {
                   Incluye
                 </h3>
                 <ul className="pl-5 list-none text-[1rem] md:max-h-[400px] md:overflow-y-auto mt-7">
-                {selectedPlan.items.length > 0 &&
+                  {selectedPlan.items.length > 0 &&
                     selectedPlan.items[0].sub_items &&
-                    selectedPlan.items[0].sub_items.map((detail: any, index: number) => (
-                    <li
-                      key={index}
-                      className={`flex justify-start items-start text-[#666] mb-3`}
-                    >
-                      <div>
-                        <svg
-                          className="w-5 h-5 object-contain drop-shadow-xl"
-                          width="100%"
-                          height="100%"
-                          viewBox="0 0 100 100"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
+                    selectedPlan.items[0].sub_items.map(
+                      (detail: any, index: number) => (
+                        <li
+                          key={index}
+                          className={`flex justify-start items-start text-[#666] mb-3`}
                         >
-                          <path
-                            d="M50 2.5C23.7664 2.5 2.5 23.7664 2.5 50C2.5 76.2336 23.7664 97.5 50 97.5C76.2336 97.5 97.5 76.2336 97.5 50C97.5 23.7664 76.2336 2.5 50 2.5ZM79.4718 40.4561C69.1786 50.7223 58.9049 61.0089 48.6247 71.2881C47.6257 72.2871 46.6363 73.297 45.6232 74.282C43.7603 76.0941 41.147 76.0908 39.3111 74.2592C33.2206 68.1839 27.1355 62.1031 21.058 56.0148C19.1215 54.0751 18.4069 51.7656 19.2513 49.1177C20.1195 46.3974 22.0776 44.8599 24.8747 44.4804C27.1161 44.1766 29.0103 45.0372 30.5781 46.6006C34.0218 50.0324 37.4071 53.5248 40.8821 56.923C42.8532 58.8498 42.2444 58.7687 44.0566 56.963C52.729 48.3176 61.3885 39.6582 70.0349 30.9857C71.7995 29.2169 73.8906 28.5497 76.3071 28.9941C79.4286 29.5682 81.618 32.3016 81.631 36.2069C81.6137 37.4687 80.859 39.0732 79.4718 40.4561Z"
-                            fill="#0BC2E1"
-                          />
-                        </svg>
-                      </div>
-                      <span className="ml-3 ">{detail.name_sub_item}</span>
-                    </li>
-                  ))}
+                          <div>
+                            <svg
+                              className="w-5 h-5 object-contain drop-shadow-xl"
+                              width="100%"
+                              height="100%"
+                              viewBox="0 0 100 100"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M50 2.5C23.7664 2.5 2.5 23.7664 2.5 50C2.5 76.2336 23.7664 97.5 50 97.5C76.2336 97.5 97.5 76.2336 97.5 50C97.5 23.7664 76.2336 2.5 50 2.5ZM79.4718 40.4561C69.1786 50.7223 58.9049 61.0089 48.6247 71.2881C47.6257 72.2871 46.6363 73.297 45.6232 74.282C43.7603 76.0941 41.147 76.0908 39.3111 74.2592C33.2206 68.1839 27.1355 62.1031 21.058 56.0148C19.1215 54.0751 18.4069 51.7656 19.2513 49.1177C20.1195 46.3974 22.0776 44.8599 24.8747 44.4804C27.1161 44.1766 29.0103 45.0372 30.5781 46.6006C34.0218 50.0324 37.4071 53.5248 40.8821 56.923C42.8532 58.8498 42.2444 58.7687 44.0566 56.963C52.729 48.3176 61.3885 39.6582 70.0349 30.9857C71.7995 29.2169 73.8906 28.5497 76.3071 28.9941C79.4286 29.5682 81.618 32.3016 81.631 36.2069C81.6137 37.4687 80.859 39.0732 79.4718 40.4561Z"
+                                fill="#0BC2E1"
+                              />
+                            </svg>
+                          </div>
+                          <span className="ml-3 ">{detail.name_sub_item}</span>
+                        </li>
+                      )
+                    )}
                 </ul>
               </div>
 
