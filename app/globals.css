@@ -60,7 +60,7 @@ html {
 .marquee-container {
   width: 100%;
   overflow: hidden;
-  background: #0BC2E1;
+  background: #4608AD;
   position: relative;
   white-space: nowrap; /* Para evitar el salto de línea */
 }

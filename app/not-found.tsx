@@ -30,7 +30,7 @@ export default function NotFound() {
                 href={"https://gato.pe/"}
                 target="_blank"
                 title="Sitio web Agencia Gato"
-                className="text-[#0BC2E1] font-bold hover:scale-105 transition-all duration-300"
+                className="text-[#4608AD] font-bold hover:scale-105 transition-all duration-300"
               >
                 Visitar la web
               </Link>

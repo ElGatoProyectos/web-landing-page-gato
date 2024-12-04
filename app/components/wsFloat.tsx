@@ -9,7 +9,7 @@ const wsFloat = () => {
       className={`fixed z-30 bottom-4 right-4 group rounded-full p-3 bg-green-500 hover:bg-green-600 transition-all duration-300 h-16 w-16 items-center`}
     >
       <span
-        className={`absolute top-1/2 -left-1 -translate-x-full -translate-y-1/2 whitespace-nowrap shadow-xl bg-white  rounded-full text-[#444] px-4 py-1 transition-transform duration-300 hidden group-hover:block group-hover:-translate-x-full `}
+        className={`absolute top-1/2 -left-1 -translate-x-full -translate-y-1/2 whitespace-nowrap shadow-xl bg-white  rounded-full text-stone-800 px-4 py-1 transition-transform duration-300 hidden group-hover:block group-hover:-translate-x-full `}
       >
         Contacta con un asesor
       </span>

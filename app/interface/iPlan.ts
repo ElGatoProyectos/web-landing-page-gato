@@ -8,3 +8,12 @@ export interface IPlan {
     }[];
     price: string;
 }
+
+export interface IImage {
+    id: number;
+    title: string;
+    alt: string;
+    width: number;
+    height: number;
+    url: string;
+  }

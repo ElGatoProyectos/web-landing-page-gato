@@ -68,8 +68,8 @@ const Navbar:React.FC<Props> = ({openPopup}) => {
               alt="Agencia GATO"
               className="h-full w-auto object-contain"
             />
-            <h1 className="hidden md:block h-full text-[#0BC2E1] font-bold text-5xl">
-              GATO <span className="text-sm text-[#666] block font-normal relative -top-2 ">Marketing y Software</span>
+            <h1 className="hidden md:block h-full text-[#4608AD] font-bold text-5xl">
+              GATO <span className="text-sm text-stone-600 block font-normal relative -top-2 ">Marketing y Software</span>
           </h1>
         </Link>
 
@@ -77,7 +77,7 @@ const Navbar:React.FC<Props> = ({openPopup}) => {
           <div className="flex justify-center items-center gap-4 md:hidden">
             <button
               onClick={openPopup}
-              className="bg-[#0BC2E1] text-white px-4 py-1 rounded-full"
+              className="bg-[#4608AD] text-white px-4 py-1 rounded-full"
             >
               Contáctenos
             </button>
@@ -92,15 +92,15 @@ const Navbar:React.FC<Props> = ({openPopup}) => {
               >
                 <path
                   d="M18.75 15.5H1.25001C0.559623 15.5 0 14.9403 0 14.25C0 13.5597 0.559623 13 1.25001 13H18.75C19.4404 13 20 13.5597 20 14.25C20 14.9403 19.4404 15.5 18.75 15.5Z"
-                  fill="#0BC2E1"
+                  fill="#4608AD"
                 />
                 <path
                   d="M18.75 9.24997H1.25001C0.559623 9.24997 0 8.69035 0 8.00001C0 7.30967 0.559623 6.75 1.25001 6.75H18.75C19.4404 6.75 20 7.30962 20 8.00001C20 8.69039 19.4404 9.24997 18.75 9.24997Z"
-                  fill="#0BC2E1"
+                  fill="#4608AD"
                 />
                 <path
                   d="M18.75 3.00002H1.25001C0.559623 3.00002 0 2.44039 0 1.75001C0 1.05962 0.559623 0.5 1.25001 0.5H18.75C19.4404 0.5 20 1.05962 20 1.75001C20 2.44039 19.4404 3.00002 18.75 3.00002Z"
-                  fill="#0BC2E1"
+                  fill="#4608AD"
                 />
               </svg>
             </button>
@@ -111,15 +111,15 @@ const Navbar:React.FC<Props> = ({openPopup}) => {
               menuOpen ? "block" : "hidden"
             } md:block`}
           >
-            <ul className="flex flex-col md:flex-row md:items-center justify-start p-4 md:p-0 gap-6 text-[#666] font-semibold ">
+            <ul className="flex flex-col md:flex-row md:items-center justify-start p-4 md:p-0 gap-6 text-stone-600 font-semibold ">
               {sections.map((section, index) => (
                 <li key={index}>
                   <Link
                     href={`#${section.id}`}
                     className={`transition-all duration-300 ${
                       activeSection === section.id
-                        ? "text-[#0BC2E1]"
-                        : "hover:text-[#0BC2E1]"
+                        ? "text-[#4608AD]"
+                        : "hover:text-[#4608AD]"
                     }`}
                   >
                     {section.name}
@@ -129,7 +129,7 @@ const Navbar:React.FC<Props> = ({openPopup}) => {
               <li className="hidden md:block">
                 <button
                   onClick={openPopup}
-                  className="bg-[#0BC2E1] text-white px-7 py-2 rounded-full"
+                  className="bg-[#4608AD] text-white px-7 py-2 rounded-full"
                 >
                   Contáctenos
                 </button>

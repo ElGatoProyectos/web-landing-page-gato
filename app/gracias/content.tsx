@@ -6,7 +6,6 @@ import WsFloat from "../components/wsFloat";
 import Footer from "../components/footer";
 import Image from "next/image";
 import Link from "next/link";
-import Script from "next/script";
 
 const Content = () => {
   const [isPopupVisible, setPopupVisible] = useState(false);
@@ -25,7 +24,7 @@ const Content = () => {
             className="max-w-[250px] object-contain"
             title="Imagen de un gato para la vista Gracias"
           />
-          <h2 className="text-center font-bold text-5xl text-[#444]">
+          <h2 className="text-center font-bold text-5xl text-stone-800">
             ¡Gracias por tu interés en nuestro servicio!
           </h2>
           <p className="md:max-w-[800px] mx-auto text-center font-semibold text-xl text-[#999]">
@@ -37,7 +36,7 @@ const Content = () => {
             title="Sitio web de Agencia Gato"
             href={"https://gato.pe/"}
             target="_blank"
-            className="bg-[#0BC2E1] font-semibold text-xl text-white rounded-full px-6 py-2"
+            className="bg-[#4608AD] font-semibold text-xl text-white rounded-full px-6 py-2"
           >
             Visita nuestra web
           </Link>

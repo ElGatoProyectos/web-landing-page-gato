@@ -12,10 +12,10 @@ const contact = () => {
     window.open("https://gato.pe/", "_blank");
   }
   return (
-    <div className="w-full bg-[#F3FAFB]" id="contactanos">
+    <div className="w-full bg-[#F4F5FF]" id="contactanos">
       <div className="w-full lg:px-16 px-8 max-w-[1440px] mx-auto pb-16 md:pt-4 md:pb-20 flex flex-col md:flex-row justify-between gap-8 lg:gap-20">
         <div className="w-full lg:w-2/3 2xl:w-3/5 flex flex-col md:flex-row justify-start items-center gap-2">
-          <h2 className="w-full text-[#444] text-3xl md:text-4xl lg:text-6xl font-semibold text-center md:text-left">
+          <h2 className="w-full text-stone-800 text-3xl md:text-4xl lg:text-6xl font-semibold text-center md:text-left">
             ¡Lleva tus ideas al siguiente nivel!
           </h2>
           <div>
@@ -117,7 +117,7 @@ const contact = () => {
           </button>
           <button
             onClick={redirectGato}
-            className="w-full md:w-full lg:w-fit mx-auto md:mx-0 bg-[#0BC2E1] px-4 py-4 rounded-2xl  flex justify-center items-center gap-4"
+            className="w-full md:w-full lg:w-fit mx-auto md:mx-0 bg-[#4608AD] px-4 py-4 rounded-2xl  flex justify-center items-center gap-4"
           >
             <div>
             <PiGlobeLight className="text-5xl text-white"/>

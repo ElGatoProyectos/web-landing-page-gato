@@ -44,7 +44,7 @@ const logos = () => {
     ]
   };
   return (
-    <div className="w-full bg-[#0BC2E1] h-[100px] overflow-hidden">
+    <div className="w-full bg-[#4608AD] h-[100px] overflow-hidden">
       <Slider {...settings}>
         {srcLogos.map((logo, index) => (
           <div key={index} className="h-[100px] w-full content-center">

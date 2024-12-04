@@ -58,16 +58,16 @@ const Form = () => {
 
     try {
       const token = await captureTokenDynamic();
-      await axios.post(
+      const response = await axios.post(
         "https://azure-pheasant-355159.hostingersite.com/wp-json/api/v1/send-mail/",
         {
           name: data.fullname,
           company: data.company,
           email: data.email,
           phone: `(${data.country_code}) ${data.phone}`,
-          service: "Diseño Web",
+          service: "Marketing digital",
           message: data.ideaDescription,
-          origin: "Landing Page Diseño Web",
+          origin: "Landing Page Marketing Digital",
         },
         {
           headers: {
@@ -75,29 +75,39 @@ const Form = () => {
           },
         }
       );
-      reset();
-      sendGTMEvent({
-        event: "conversion",
-        conversion_id: "AW-16593859821/OwFFCNHzz8cZEO3pyOg9",
-      });
-      setIsSubmitting(false);
-      setModalTitle("¡Hemos Recibido Tu Solicitud!");
-      setModalMessage(
-        `¡Tu camino hacia el éxito ha comenzado! Un
-              especialista se comunicará contigo en breve para discutir cómo
-              podemos llevar tu visión al siguiente nivel. ¡Nos emociona
-              trabajar contigo!`
-      );
-
-      setIsModalOpen(true);
-      router.push("/gracias");
+      if (response.status === 200) {
+        reset();
+        sendGTMEvent({
+          event: "conversion",
+          conversion_id: "AW-16593859821/kuNCCPm15cYZEO3pyOg9",
+        });
+        setIsSubmitting(false);
+        setModalTitle("¡Hemos Recibido Tu Solicitud!");
+        setModalMessage(
+          response.data.message ||
+            `¡Tu camino hacia el éxito ha comenzado! Un especialista se comunicará contigo en breve para discutir cómo podemos llevar tu visión al siguiente nivel. ¡Nos emociona trabajar contigo!`
+        );
+        setIsModalOpen(true);
+        router.push("/gracias");
+      } else {
+        setIsSubmitting(false);
+        setModalTitle("Error");
+        setModalMessage(
+          "Error al enviar el mensaje. Por favor, inténtelo de nuevo o contáctenos"
+        );
+        setIsModalOpen(true);
+      }
     } catch (error) {
-      console.error("Error sending data:", error);
       setIsSubmitting(false);
       setModalTitle("Error");
-      setModalMessage(
-        "Error al enviar el mensaje. Por favor, inténtelo de nuevo o contáctenos"
-      );
+
+      if (axios.isAxiosError(error)) {
+        setModalMessage(error.response?.data);
+      } else {
+        setModalMessage(
+          "Error al enviar el mensaje. Por favor, inténtelo de nuevo o contáctenos"
+        );
+      }
       setIsModalOpen(true);
     }
     setLoading(false);
@@ -107,14 +117,14 @@ const Form = () => {
     <>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="mx-auto w-full max-w-[430px] bg-white h-full rounded-3xl border border-[#0BC2E1] p-8 shadow-lg"
+        className="mx-auto w-full max-w-[430px] bg-white h-full rounded-3xl border border-[#4608AD] p-8 shadow-lg"
       >
         <div className="flex flex-col h-full justify-center overflow-y-auto">
           <div className="text-center mb-5">
-            <h2 className="text-[#0BC2E1] text-2xl md:text-3xl font-semibold mb-3">
+            <h2 className="text-[#4608AD] text-2xl md:text-3xl font-semibold mb-3">
               ¡Diseñemos Tu Sitio Web Juntos!
             </h2>
-            <p className="text-[#666]">
+            <p className="text-stone-600">
               Transforma tus ideas en un sitio web que refleje tu marca.
               Completa el formulario y comenzaremos a crear tu estrategia de
               diseño web.
@@ -125,7 +135,7 @@ const Form = () => {
               type="text"
               placeholder="Nombre"
               id="fullname"
-              className=" bg-transparent w-full border rounded-lg px-4 py-2 placeholder:text-[#bbb] text-[#666] mb-3 outline-none focus:border-[#0BC2E1]"
+              className=" bg-transparent w-full border rounded-lg px-4 py-2 placeholder:text-[#bbb] text-stone-600 mb-3 outline-none focus:border-[#4608AD]"
               {...register("fullname")}
             />
             {errors.fullname && (
@@ -137,7 +147,7 @@ const Form = () => {
               type="text"
               placeholder="Empresa"
               id="company"
-              className="bg-transparent w-full border rounded-lg px-4 py-2 placeholder:text-[#bbb] text-[#666] mb-3 outline-none  focus:border-[#0BC2E1]"
+              className="bg-transparent w-full border rounded-lg px-4 py-2 placeholder:text-[#bbb] text-stone-600 mb-3 outline-none  focus:border-[#4608AD]"
               {...register("company")}
             />
             {errors.company && (
@@ -163,7 +173,7 @@ const Form = () => {
                   type="text"
                   placeholder="Número celular "
                   id="phone"
-                  className="bg-transparent w-full border rounded-lg px-4 py-2 placeholder:text-[#bbb] text-[#666] mb-3 outline-none  focus:border-[#0BC2E1]"
+                  className="bg-transparent w-full border rounded-lg px-4 py-2 placeholder:text-[#bbb] text-stone-600 mb-3 outline-none  focus:border-[#4608AD]"
                   {...register("phone")}
                 />
                 {errors.phone && (
@@ -178,7 +188,7 @@ const Form = () => {
               type="email"
               placeholder="Email"
               id="email"
-              className="bg-transparent w-full border rounded-lg px-4 py-2 placeholder:text-[#bbb] text-[#666] mb-3 outline-none focus:border-[#0BC2E1]"
+              className="bg-transparent w-full border rounded-lg px-4 py-2 placeholder:text-[#bbb] text-stone-600 mb-3 outline-none focus:border-[#4608AD]"
               {...register("email")}
             />
             {errors.email && (
@@ -190,7 +200,7 @@ const Form = () => {
               rows={3}
               placeholder="cuéntanos tu idea"
               id="ideaDescription"
-              className=" resize-none bg-transparent w-full border rounded-lg px-4 py-2 placeholder:text-[#bbb] text-[#666] mb-3 outline-none focus:border-[#0BC2E1]"
+              className=" resize-none bg-transparent w-full border rounded-lg px-4 py-2 placeholder:text-[#bbb] text-stone-600 mb-3 outline-none focus:border-[#4608AD]"
               {...register("ideaDescription")}
             ></textarea>
             {errors.ideaDescription && (
@@ -202,7 +212,7 @@ const Form = () => {
           <div className="mx-auto w-fit">
             <button
               type="submit"
-              className="bg-[#0BC2E1] text-white font-bold px-6 py-3 rounded-full hover:bg-[#87D5E2] transition-all duration-300"
+              className="bg-[#4608AD] text-white font-bold px-6 py-3 rounded-full hover:bg-[#360786] transition-all duration-300"
             >
               {loading ? "Enviando..." : "Empezar ahora"}
             </button>

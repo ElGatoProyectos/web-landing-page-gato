@@ -123,10 +123,10 @@ const slider = ({
           >
             <div className="flex flex-col justify-between h-full gap-6">
               <div className="">
-                <h3 className="px-6 text-[#666] font-semibold text-2xl text-left mb-1 capitalize">
+                <h3 className="px-6 text-stone-600 font-semibold text-2xl text-left mb-1 capitalize">
                   {item.plan_name.toLocaleLowerCase()}
                 </h3>
-                <div className="relative w-[90%] bg-[#0BC2E1] py-4 text-white rounded-r-full font-extrabold text-4xl mb-4">
+                <div className="relative w-[90%] bg-[#4608AD] py-4 text-white rounded-r-full font-extrabold text-4xl mb-4">
                   S./
                   {(() => {
                     const price = item.price;
@@ -147,7 +147,7 @@ const slider = ({
                   })()}
                   
                 </div>
-                <p className="px-6 text-center text-[#666] font-medium ">
+                <p className="px-6 text-center text-stone-600 font-medium ">
                   {item.short_description}
                 </p>
               </div>
@@ -158,7 +158,7 @@ const slider = ({
                     item.items[0].sub_items.slice(0, 6).map((detail, index) => (
                       <li
                         key={index}
-                        className="flex justify-start items-start text-[#666] mb-3 "
+                        className="flex justify-start items-start text-stone-600 mb-3 "
                       >
                         <div>
                           <svg
@@ -171,7 +171,7 @@ const slider = ({
                           >
                             <path
                               d="M50 2.5C23.7664 2.5 2.5 23.7664 2.5 50C2.5 76.2336 23.7664 97.5 50 97.5C76.2336 97.5 97.5 76.2336 97.5 50C97.5 23.7664 76.2336 2.5 50 2.5ZM79.4718 40.4561C69.1786 50.7223 58.9049 61.0089 48.6247 71.2881C47.6257 72.2871 46.6363 73.297 45.6232 74.282C43.7603 76.0941 41.147 76.0908 39.3111 74.2592C33.2206 68.1839 27.1355 62.1031 21.058 56.0148C19.1215 54.0751 18.4069 51.7656 19.2513 49.1177C20.1195 46.3974 22.0776 44.8599 24.8747 44.4804C27.1161 44.1766 29.0103 45.0372 30.5781 46.6006C34.0218 50.0324 37.4071 53.5248 40.8821 56.923C42.8532 58.8498 42.2444 58.7687 44.0566 56.963C52.729 48.3176 61.3885 39.6582 70.0349 30.9857C71.7995 29.2169 73.8906 28.5497 76.3071 28.9941C79.4286 29.5682 81.618 32.3016 81.631 36.2069C81.6137 37.4687 80.859 39.0732 79.4718 40.4561Z"
-                              fill="#0BC2E1"
+                              fill="#4608AD"
                             />
                           </svg>
                         </div>
@@ -183,7 +183,7 @@ const slider = ({
                 </ul>
                 <button
                   onClick={() => handleViewPlan(item)}
-                  className="text-sm text-[#666] text-center mb-4 block mx-auto"
+                  className="text-sm text-stone-600 text-center mb-4 block mx-auto"
                 >
                   Ver más
                 </button>

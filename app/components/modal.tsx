@@ -21,13 +21,13 @@ const ConfirmationModal: React.FC<ConfirmationModalProps> = ({
   return (
     <div className="fixed h-screen w-full top-0 left-0 z-30 flex items-center justify-center bg-black bg-opacity-50">
       <div className=" rounded-2xl max-w-[90%] w-full md:max-w-[600px]  ">
-        <div className="p-4 text-center text-white font-medium text-xl bg-[#0BC2E1] rounded-t-2xl">
+        <div className="p-4 text-center text-white font-medium text-xl bg-[#4608AD] rounded-t-2xl">
           <h2>{title}</h2>
         </div>
         <div className="flex p-8 bg-white rounded-b-2xl gap-8  justify-center">
           <img src="/gatosend.png" alt="gato para envíos" className="h-40" />
           <div>
-            <p className="text-[#666]">
+            <p className="text-stone-600">
               {message} 
             </p>
             <div className="flex justify-end mt-8 items-center gap-8">
@@ -40,7 +40,7 @@ const ConfirmationModal: React.FC<ConfirmationModalProps> = ({
                 <span className="font-medium">WhatsApp</span>
               </button>
               <button
-                className="bg-[#0BC2E1] text-white px-4 py-2 rounded transition-all duration-300 hover:bg-[#87D5E2] font-medium"
+                className="bg-[#4608AD] text-white px-4 py-2 rounded transition-all duration-300 hover:bg-[#360786] font-medium"
                 onClick={onClose}
               >
                 Cerrar

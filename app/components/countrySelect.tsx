@@ -55,17 +55,17 @@ const CountrySelect: React.FC<SelectFieldProps> = ({
       fontSize: "16px",
       color: "#666",
       backgroundColor: state.isFocused ? "white" : "transparent",
-      borderColor: error ? "#0BC2E1" : "#EEEEEE",
+      borderColor: error ? "#4608AD" : "#EEEEEE",
       boxShadow: state.isFocused
         ? error
           ? "0 0 0 1px #f20707"
-          : "0 0 0 1px #0BC2E1"
+          : "0 0 0 1px #4608AD"
         : "none",
       "&:hover": {
         borderColor: state.isFocused
           ? error
             ? "#f20707"
-            : "#0BC2E1"
+            : "#4608AD"
           : "#EEEEEE",
       },
     }),
@@ -80,7 +80,7 @@ const CountrySelect: React.FC<SelectFieldProps> = ({
   };
 
   return (
-    <div className="w-full text-[#444] mb-3">
+    <div className="w-full text-stone-800 mb-3">
       <Select
         instanceId="country_code_select"
         inputId={id}

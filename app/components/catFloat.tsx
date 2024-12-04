@@ -43,7 +43,7 @@ const CatFloat: React.FC<Props> = ({ openPopup }) => {
     >
       <div
         onClick={openPopup}
-        className={`cursor-pointer absolute -top-2 left-14 md:top-[15px] md:left-[92px] whitespace-nowrap shadow-xl bg-white rounded-t-full rounded-bl-full text-[#444] px-4 py-1 transition-opacity duration-700 text-sm md:text-base z-10 ${
+        className={`cursor-pointer absolute -top-2 left-14 md:top-[15px] md:left-[92px] whitespace-nowrap shadow-xl bg-white rounded-t-full rounded-bl-full text-stone-800 px-4 py-1 transition-opacity duration-700 text-sm md:text-base z-10 ${
           isVisible ? "opacity-100" : "opacity-0"
         }`}
         onMouseEnter={handleMouseEnter}

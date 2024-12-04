@@ -10,6 +10,9 @@ import Footer from "./components/footer";
 import { useEffect, useState } from "react";
 import PopUp from "./components/popUp";
 import axios from "axios";
+import SubServices from "./components/subservices";
+import { InfoDisenioWeb } from "./data/disenioweb";
+import ContactServices from "./components/contact-service";
 
 const index = () => {
   const [isPopupVisible, setPopupVisible] = useState(false);
@@ -36,7 +39,13 @@ const index = () => {
       <main className="top-[60px] md:top-[80px] relative">
         <Banner openPopup={openPopup} />
         <Benefits openPopup={openPopup} />
-        <Plans color="#0BC2E1" data={dataWeb} openPopup={openPopup} />
+        <SubServices
+          subservices={InfoDisenioWeb.subservices}
+          description={InfoDisenioWeb.description}
+          img={InfoDisenioWeb.img}
+        />
+        <Plans color="#4608AD" data={dataWeb} openPopup={openPopup} />
+        <ContactServices openPopup={openPopup} />
         <Contact />
         <Footer />
       </main>
