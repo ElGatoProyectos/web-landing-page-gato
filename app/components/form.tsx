@@ -65,9 +65,9 @@ const Form = () => {
           company: data.company,
           email: data.email,
           phone: `(${data.country_code}) ${data.phone}`,
-          service: "Marketing digital",
+          service: "Diseño Web",
           message: data.ideaDescription,
-          origin: "Landing Page Marketing Digital",
+          origin: "Landing Page Diseño Web",
         },
         {
           headers: {
