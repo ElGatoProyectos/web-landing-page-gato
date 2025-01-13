@@ -8,15 +8,23 @@ const sections = [
     name: "Beneficios",
   },
   {
+    id: "servicios",
+    name: "Servicios",
+  },
+  {
     id: "planes",
     name: "Planes",
+  },
+  {
+    id: "galeria",
+    name: "Galeria",
   },
 ];
 interface Props {
   openPopup: () => void;
 }
 
-const Navbar:React.FC<Props> = ({openPopup}) => {
+const Navbar: React.FC<Props> = ({ openPopup }) => {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
   const [activeSection, setActiveSection] = useState<string>(sections[0].id);
   const [popUpOpen, setPopUpOpen] = useState<boolean>(false);
@@ -44,7 +52,7 @@ const Navbar:React.FC<Props> = ({openPopup}) => {
       }
       setActiveSection(currentSectionId);
       if (contactElement && contactElement.getBoundingClientRect().top <= 10) {
-        currentSectionId = 'contactanos';
+        currentSectionId = "contactanos";
       }
       if (currentSectionId !== activeSection) {
         setActiveSection(currentSectionId);
@@ -62,14 +70,16 @@ const Navbar:React.FC<Props> = ({openPopup}) => {
     <div className="z-20 fixed w-full bg-white h-[60px] md:h-[80px] shadow-lg">
       <div className="w-full max-w-[1440px] mx-auto lg:px-16 px-8 py-1 md:py-3 content-center h-full flex justify-between items-center">
         <Link href={"/"} className="h-full flex items-center gap-4">
-          
-            <img
-              src="/gato-icon.png"
-              alt="Agencia GATO"
-              className="h-full w-auto object-contain"
-            />
-            <h1 className="hidden md:block h-full text-[#4608AD] font-bold text-5xl">
-              GATO <span className="text-sm text-stone-600 block font-normal relative -top-2 ">Marketing y Software</span>
+          <img
+            src="/gato-icon.png"
+            alt="Agencia GATO"
+            className="h-full w-auto object-contain"
+          />
+          <h1 className="hidden md:block h-full text-[#4608AD] font-bold text-5xl">
+            GATO{" "}
+            <span className="text-sm text-stone-600 block font-normal relative -top-2 ">
+              Marketing y Software
+            </span>
           </h1>
         </Link>
 
@@ -140,6 +150,6 @@ const Navbar:React.FC<Props> = ({openPopup}) => {
       </div>
     </div>
   );
-}
+};
 
-export default Navbar ;
+export default Navbar;
