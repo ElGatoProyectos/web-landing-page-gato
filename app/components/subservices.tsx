@@ -40,7 +40,7 @@ const SubServices: React.FC<subServicesProps> = ({
   };
 
   return (
-    <section className="bg-[#F4F5FF] w-full">
+    <section className="bg-[#F4F5FF] w-full" >
       <div className="w-full max-w-[1440px] mx-auto sm:px-12 lg:px-16 px-8 py-16 ">
         <div className="text-center mb-8 ">
           <h2 className="text-stone-800 text-4xl md:text-6xl font-semibold mb-5 text-center">

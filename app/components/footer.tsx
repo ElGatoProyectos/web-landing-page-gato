@@ -40,7 +40,7 @@ const footer = () => {
           <Link
             target="blank"
             href={"https://www.tiktok.com/@agenciagato?_t=8nidJWZNVaP&_r=1"}
-            className="hover: scale-105 transition-all duration-300"
+            className="hover:scale-105 transition-all duration-300"
           >
             <FaTiktok className="text-white text-2xl" />
           </Link>
