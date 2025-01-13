@@ -4,8 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "build-back": "next build",
+    "build": "node --max-old-space-size=4192 node_modules/next/dist/bin/next  build",
+    "start": "next start -p 3090",
     "lint": "next lint"
   },
   "dependencies": {
