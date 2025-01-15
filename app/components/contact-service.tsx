@@ -7,7 +7,7 @@ const ContactServices = ({ openPopup }: { openPopup: () => void }) => {
       <div className="w-full max-w-[1440px] mx-auto sm:px-12 lg:px-16 px-8 pt-16 pb-16 flex flex-col md:flex-row gap-8">
         <div className="bg-white rounded-xl p-4 md:p-6 flex flex-row shadow-md lg:w-1/2 justify-between items-center gap-2">
           <Image
-            src={"/img/cats/gato_corbata_morado_foco.png"}
+            src={`/img/cats/gato_corbata_morado_foco.png?updated=${Date.now()}`}
             width={340}
             height={385}
             alt="Gato negro sentado con cobata morada, al lado un foco amarillo"
@@ -35,7 +35,7 @@ const ContactServices = ({ openPopup }: { openPopup: () => void }) => {
         </div>
         <div className="bg-white rounded-xl p-4 md:p-6 flex flex-row justify-between items-center shadow-md lg:w-1/2 gap-2">
           <Image
-            src={"/img/cats/gato_maletin_marron_foco.png"}
+            src={`/img/cats/gato_maletin_marron_foco.png?updated=${Date.now()}`}
             width={294}
             height={397}
             alt="Gato negro con cobata y un maletin, al lado un foco amarillo"
