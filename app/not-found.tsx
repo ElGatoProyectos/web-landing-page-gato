@@ -40,7 +40,7 @@ export default function NotFound() {
                 height={500}
                 width={500}
                 className=" max-h-[450px] w-auto object-contain mx-auto"
-                src="/gato404.webp"
+                src={`/gato404.png?updated=${Date.now()}`}
                 alt="Gato con un cartel de error"
                 title="Gato 404"
               />

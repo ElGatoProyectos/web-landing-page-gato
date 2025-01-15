@@ -19,10 +19,12 @@ const CountrySelect: React.FC<SelectFieldProps> = ({
   id,
   register,
   error,
-  defaultValue = "",
+  defaultValue = "+51",
   isDisabled = false,
 }) => {
   const [codes, setCodes] = useState<Country[]>([]);
+  const [defaultOption, setDefaultOption] = useState<{ value: string; label: string } | null>(null);
+
   const fetchCountries = async () => {
     try {
       const response = await axios.get(
@@ -34,8 +36,16 @@ const CountrySelect: React.FC<SelectFieldProps> = ({
       }));
       countryData = countryData.sort((a, b) => a.name.localeCompare(b.name));
       setCodes(countryData);
+
+      // Buscar y establecer la opción por defecto
+      const options = countryData.map((country) => ({
+        value: country.code,
+        label: `(${country.code}) ${country.name}`,
+      }));
+      const defaultOpt = options.find((opt) => opt.value === defaultValue);
+      setDefaultOption(defaultOpt || null);
     } catch (e) {
-      console.error(e);
+      console.log(e);
     }
   };
 
@@ -80,11 +90,11 @@ const CountrySelect: React.FC<SelectFieldProps> = ({
   };
 
   return (
-    <div className="w-full text-stone-800 mb-3">
+    <div className="w-full text-[#444] mb-3">
       <Select
         instanceId="country_code_select"
         inputId={id}
-        defaultValue={options.find((opt) => opt.value === defaultValue)}
+        value={defaultOption} 
         options={options}
         styles={customStyles}
         placeholder="seleccione..."
@@ -98,9 +108,15 @@ const CountrySelect: React.FC<SelectFieldProps> = ({
               },
             });
           }
+          setDefaultOption(selectedOption || null);
         }}
         onBlur={register?.onBlur}
       />
+      {error && (
+        <p className="text-red-500 text-sm font-medium mt-1">
+          {error?.message}
+        </p>
+      )}
     </div>
   );
 };

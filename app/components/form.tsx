@@ -7,7 +7,6 @@ import { sendFormSchema } from "@/app/schemas/sendForm";
 import ConfirmationModal from "./modal";
 import CountrySelect from "./countrySelect";
 import { useRouter } from "next/navigation";
-import { sendGTMEvent } from "@next/third-parties/google";
 type Inputs = {
   fullname: string;
   company: string;
@@ -77,10 +76,13 @@ const Form = () => {
       );
       if (response.status === 200) {
         reset();
-        sendGTMEvent({
-          event: "conversion",
-          conversion_id: "AW-16593859821/kuNCCPm15cYZEO3pyOg9",
-        });
+        if (typeof window !== "undefined" && window.gtag) {
+          window.gtag("event", "conversion", {
+            send_to: "AW-16593859821/ntBlCL2A4McZEO3pyOg9",
+            value: 1.0,
+            currency: "PEN",
+          });
+        }
         setIsSubmitting(false);
         setModalTitle("¡Hemos Recibido Tu Solicitud!");
         setModalMessage(
